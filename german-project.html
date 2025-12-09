@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Germany, Nuclear Power, and Biomass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #020617;
+      --accent: #38bdf8;
+      --accent2: #22c55e;
+      --accent-soft: rgba(56, 189, 248, 0.18);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.3);
+      --card: rgba(15, 23, 42, 0.98);
+      --radius-lg: 1.5rem;
+      --radius-md: 1rem;
+      --radius-pill: 999px;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #0f172a 0, #020617 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.96),
+        rgba(2, 6, 23, 0.9),
+        rgba(2, 6, 23, 0.7)
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.7rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 20% 0, #38bdf8, #1d4ed8);
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.25),
+                  0 18px 40px rgba(15, 23, 42, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo-text-main {
+      font-size: 0.95rem;
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.78rem;
+      color: var(--muted);
+      transition: all 0.18s ease-out;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #020617;
+      font-weight: 600;
+      border: none;
+      box-shadow: 0 12px 35px rgba(22, 163, 74, 0.4);
+    }
+    .nav-cta:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        justify-content: flex-start;
+      }
+    }
+
+    /* LAYOUT */
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.2rem 1.5rem 4rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.15rem 0.85rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .section-label-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 3vw + 1rem, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 2vw + 0.8rem, 2.1rem);
+      margin-bottom: 0.9rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 0.96rem;
+      color: #e5e7eb;
+      max-width: 60rem;
+    }
+
+    .highlight {
+      color: #fef9c3;
+      font-weight: 600;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 0.75rem;
+      margin-bottom: 0.7rem;
+      color: var(--muted);
+    }
+
+    .hero-pill span.keywords {
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.7rem;
+    }
+
+    .hero-question {
+      margin-top: 0.7rem;
+      padding: 1rem 1.1rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 60%),
+        rgba(2, 6, 23, 0.96);
+      font-size: 0.9rem;
+    }
+
+    .hero-meta {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .chip {
+      padding: 0.18rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--muted);
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 1.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.35), rgba(15, 23, 42, 0.98));
+      box-shadow: var(--shadow);
+      padding: 1.4rem 1.4rem 1.2rem;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background-image:
+        radial-gradient(circle at 10% 0, #38bdf8 0, transparent 55%),
+        radial-gradient(circle at 100% 30%, #22c55e 0, transparent 55%);
+      opacity: 0.16;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #e5e7eb;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-quote {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-mini {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-mini-card {
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.97);
+      padding: 0.6rem 0.7rem;
+    }
+
+    .hero-mini-card strong {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #bfdbfe;
+      margin-bottom: 0.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* GENERIC CARDS & GRIDS */
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+    }
+
+    .card-muted {
+      border-style: dashed;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      main {
+        padding-inline: 1.1rem;
+      }
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 1rem;
+    }
+
+    .timeline-column h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0.35rem;
+      top: 0.2rem;
+      bottom: -0.25rem;
+      border-left: 1px dashed rgba(148, 163, 184, 0.7);
+    }
+
+    .timeline-bullet {
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .timeline-year {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #cbd5f5;
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-text {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .timeline {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* TAGS / LISTS */
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag {
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .pill-positive {
+      color: #4ade80;
+      border-color: rgba(74, 222, 128, 0.9);
+      background: rgba(22, 163, 74, 0.09);
+    }
+
+    .pill-negative {
+      color: #fb7185;
+      border-color: rgba(251, 113, 133, 0.9);
+      background: rgba(153, 27, 27, 0.09);
+    }
+
+    ul {
+      margin-left: 1rem;
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+    }
+    li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* QA SECTION */
+
+    .qa-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.3rem;
+    }
+
+    @media (max-width: 900px) {
+      .qa-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .qa-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .answer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-radius: var(--radius-pill);
+      padding: 0.15rem 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.76rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .answer-pill-dot,
+    .answer-pill-dot-danger {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
+      background: #4ade80;
+    }
+
+    .answer-pill-dot-danger {
+      background: #fb7185;
+      box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.25);
+    }
+
+    /* GAME SECTION */
+
+    .game-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 1.4rem;
+      margin-top: 1.3rem;
+    }
+
+    @media (max-width: 900px) {
+      .game-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .game-qr {
+      text-align: center;
+    }
+
+    .game-qr img {
+      max-width: 230px;
+      width: 100%;
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: white;
+      padding: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .kahoot-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      box-shadow: 0 14px 35px rgba(22, 163, 74, 0.5);
+    }
+
+    .kahoot-button:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .game-questions {
+      margin-top: 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .game-questions ol {
+      margin-top: 0.4rem;
+      margin-left: 1.1rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark">DE</div>
+        <div>
+          <div class="logo-text-main">Germany & Nuclear Power</div>
+          <div class="logo-text-sub">Nuclear, Biomass & CO₂ Goals</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#intro">Intro</a></li>
+          <li><a href="#history">History</a></li>
+          <li><a href="#energy">Types of Energy</a></li>
+          <li><a href="#answers">CO₂ & Tradeoffs</a></li>
+          <li><a href="#game" class="nav-cta">Class Game</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- INTRO / HERO -->
+    <section id="intro">
+      <div class="hero">
+        <div>
+          <div class="hero-pill">
+            <span class="keywords">Intro · History · Energy · CO₂ Goals</span>
+            <span>Germany, nuclear power & biomass</span>
+          </div>
+
+          <h1>
+            Nuclear vs. Biomass in Germany:<br />
+            Beneficial tradeoff or equally harmful?
+          </h1>
+
+          <p>
+            This page adapts our updated group presentation into a visual story about
+            how Germany moved away from nuclear power, how large biomass plants fit into
+            the energy mix, and what that means for CO₂ reduction and sustainability.
+          </p>
+
+          <div class="hero-question">
+            <strong>Guiding questions</strong><br />
+            1. Is using <span class="highlight">nuclear power instead of large biomass energy generation plants</span>
+            in Germany a beneficial tradeoff, or does it harm the environment equally in a different way?<br />
+            2. Is Germany’s aversion to nuclear energy based on real tradeoffs in sustainability, or fear?
+          </div>
+
+          <div class="hero-meta">
+            <span class="chip">Authors: Alden · Sarah · Mia</span>
+            <span class="chip">Course: Climate & Energy / Germany</span>
+            <span class="chip">Timeline: 1950s–2023</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Summary">
+          <div class="hero-card-inner">
+            <div class="hero-badge">TL;DR — Main Takeaway</div>
+            <p class="hero-quote">
+              Nuclear power does <span class="highlight">not</span> “harm the environment equally in a different way”
+              compared with large biomass plants. Biomass produces ongoing air pollution and can emit more CO₂ per
+              unit of energy than fossil fuels, while nuclear’s main risks are long-lived waste and rare accidents.
+            </p>
+            <p class="hero-quote">
+              Germany’s nuclear phase-out reflects both <span class="highlight">sustainability concerns</span>
+              (waste, accident risk, system lock-in) and <span class="highlight">fear-driven politics</span>
+              shaped by accidents like Chernobyl and Fukushima.
+            </p>
+            <div class="hero-mini">
+              <div class="hero-mini-card">
+                <strong>Biomass</strong>
+                Large plants (&gt; 15 MW) require huge feedstock flows and emit NOx, particulates, VOCs, and CO₂.
+              </div>
+              <div class="hero-mini-card">
+                <strong>Nuclear</strong>
+                Very low routine emissions; risk is concentrated in waste that can be stored underground (e.g. ONKALO).
+              </div>
+              <div class="hero-mini-card">
+                <strong>History</strong>
+                Seveso, Chernobyl, and Fukushima shaped German risk politics and anti-nuclear movements.
+              </div>
+              <div class="hero-mini-card">
+                <strong>CO₂ goals</strong>
+                Nuclear could help CO₂ reduction, while biomass is more ambiguous once full life cycles are counted.
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history">
+      <div class="section-label">
+        <span class="section-label-dot"></span>
+        History · 1950s–2023
+      </div>
+      <h2>Timeline: how Germany went from nuclear optimism to a full phase-out</h2>
+      <p>
+        The German nuclear story runs from post-war modernization through European industrial
+        disasters and finally to a political decision to leave nuclear energy behind.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-column card">
+          <h3>1950s – 1980s</h3>
+
+          <div class="timeline-item">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-year">1950s – early 1970s</div>
+            <div class="timeline-text">
+              West Germany embraced nuclear technology as a symbol of modernization and energy independence.
+              Early reactors came online in the 1960s, while some German scientists and commentators already
+              raised concerns about safety and long-term waste disposal.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-year">Mid-1970s</div>
+            <div class="timeline-text">
+              The 1976 Seveso explosion in Italy showed how a single accident could contaminate a region for
+              decades. This helped push European regulators toward precaution, transparency, and stronger
+              control of high-risk technologies, including nuclear.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-year">Mid-1980s</div>
+            <div class="timeline-text">
+              The Chernobyl nuclear disaster in April 1986 spread radioactive fallout over large parts of
+              Europe, including Germany, cementing a societal association between nuclear plants and
+              catastrophic, uncontrollable risk.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-year">Late 1980s</div>
+            <div class="timeline-text">
+              Anti-nuclear views become a mainstream political stance, feeding into the rise of the Green
+              Party and environmental movements.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-column card">
+          <h3>1990s – 2023</h3>
+
+          <div class="timeline-item">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-year">1990s – 2000</div>
+            <div class="timeline-text">
+              Politics and the public remained worried about waste disposal. The SPD–Green coalition passed
+              legislation that banned the construction of new reactors and envisioned a complete nuclear
+              phase-out by 2022.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-year">2000s – 2011</div>
+            <div class="timeline-text">
+              In 2010, Angela Merkel’s CDU/FDP government extended reactor lifetimes, partially undoing the
+              original phase-out plan. Large parts of the public still distrusted nuclear risk management
+              and waste policies.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-year">2011 – 2023</div>
+            <div class="timeline-text">
+              The Fukushima disaster in March 2011 reignited fears of catastrophic nuclear accidents.
+              In June 2011, the Bundestag voted to end nuclear power by 2022; the last three reactors
+              finally closed in April 2023.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-year">Post-2023</div>
+            <div class="timeline-text">
+              Recent energy-crisis surveys show growing support for keeping or even restarting nuclear,
+              driven by high prices and climate concerns. But these debates come after the legal exit and
+              mostly question whether the phase-out was a mistake.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPES OF ENERGY -->
+    <section id="energy">
+      <div class="section-label">
+        <span class="section-label-dot"></span>
+        Types of Energy · Renewable & Non-renewable
+      </div>
+      <h2>How Germany generates electricity: solar, wind, biomass, fossil fuels & nuclear</h2>
+      <p>
+        To evaluate nuclear vs. biomass, we need to understand how the main energy sources work
+        and what their environmental profiles look like.
+      </p>
+
+      <h3 style="margin-top:1.5rem;margin-bottom:0.4rem;">Renewable energy sources</h3>
+
+      <div class="grid-3">
+        <!-- Solar -->
+        <article class="card">
+          <div class="tag-row">
+            <span class="tag">Solar</span>
+            <span class="tag">Renewable</span>
+          </div>
+          <h3>Solar Energy</h3>
+          <p>
+            <strong>How it works:</strong> The sun emits light that reaches the Earth’s surface.
+            Solar panels absorb this light, creating an electrical current that can be used as power.
+          </p>
+          <div style="margin-top:0.7rem;">
+            <span class="tag pill-positive">Pros</span>
+            <ul>
+              <li>No atmospheric emissions during operation.</li>
+              <li>Reduced water usage (≈ 0.03 g/kWh in many assessments).</li>
+            </ul>
+          </div>
+          <div style="margin-top:0.4rem;">
+            <span class="tag pill-negative">Cons</span>
+            <ul>
+              <li>Landscape modifications where large solar farms are built.</li>
+              <li>Average efficiency is only about 15% of incoming sunlight converted to electricity.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Wind -->
+        <article class="card">
+          <div class="tag-row">
+            <span class="tag">Wind</span>
+            <span class="tag">Renewable</span>
+          </div>
+          <h3>Wind Energy</h3>
+          <p>
+            <strong>How it works:</strong> Wind turbines are turned by wind, spinning a generator
+            that produces electricity.
+          </p>
+          <div style="margin-top:0.7rem;">
+            <span class="tag pill-positive">Pros</span>
+            <ul>
+              <li>No atmospheric emissions during operation.</li>
+              <li>Very low water usage (≈ 0.001 g/kWh).</li>
+            </ul>
+          </div>
+          <div style="margin-top:0.4rem;">
+            <span class="tag pill-negative">Cons</span>
+            <ul>
+              <li>Contribution to wildlife accidents, especially birds.</li>
+              <li>Noise pollution and visual impacts for nearby communities.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Biomass -->
+        <article class="card">
+          <div class="tag-row">
+            <span class="tag">Biomass</span>
+            <span class="tag">Renewable (with limits)</span>
+          </div>
+          <h3>Biomass Energy</h3>
+          <p>
+            <strong>How it works:</strong> Biomass such as crop waste, food waste, and urban wood
+            waste is burned to heat water into steam. The steam turns a generator and electricity is produced.
+          </p>
+          <div style="margin-top:0.7rem;">
+            <span class="tag pill-positive">Pros</span>
+            <ul>
+              <li>Can use residues and waste streams (agricultural, food, wood).</li>
+              <li>Dispatchable: can generate on demand when wind and solar are low.</li>
+            </ul>
+          </div>
+          <div style="margin-top:0.4rem;">
+            <span class="tag pill-negative">Cons</span>
+            <ul>
+              <li>
+                Atmospheric emissions including nitrous oxide (N₂O), water vapor (H₂O), carbon dioxide (CO₂),
+                nitric oxide (NO), nitrogen dioxide (NO₂), oxygen (O₂), acetaldehyde (CH₃CHO), acetic acid (CH₃COOH),
+                hydrogen (H₂), and traces of benzene and other VOCs.
+              </li>
+              <li>
+                Large biomass plants (&gt; 15 MW) require very high volumes of feedstock, which can be
+                environmentally and logistically unsustainable.
+              </li>
+              <li>
+                Life-cycle studies show biomass can produce more CO₂ per unit of energy than coal or natural gas.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <h3 style="margin-top:2rem;margin-bottom:0.45rem;">Non-renewable energy sources</h3>
+
+      <div class="grid-2">
+        <!-- Fossil fuels -->
+        <article class="card card-muted">
+          <div class="tag-row">
+            <span class="tag">Fossil fuels</span>
+            <span class="tag">Coal · Oil · Gas</span>
+          </div>
+          <h3>Fossil Fuels</h3>
+          <p>
+            Coal, oil, and natural gas remain part of Germany’s energy mix. They are major contributors
+            to climate change and air pollution.
+          </p>
+          <ul>
+            <li>High CO₂ emissions per kWh.</li>
+            <li>Co-pollutants such as SO₂, NOx, particulates, and heavy metals.</li>
+            <li>Linked to mining damage, health impacts, and global warming.</li>
+          </ul>
+        </article>
+
+        <!-- Nuclear -->
+        <article class="card card-muted">
+          <div class="tag-row">
+            <span class="tag">Nuclear</span>
+            <span class="tag">Low-carbon baseload</span>
+          </div>
+          <h3>Nuclear Energy</h3>
+          <p>
+            Nuclear reactors split uranium atoms, releasing heat that turns water into steam. The steam
+            spins a turbine connected to a generator, producing electricity.
+          </p>
+          <ul>
+            <li>Very low life-cycle CO₂ emissions and no combustion air pollution.</li>
+            <li>Generates long-lived radioactive waste that must be securely stored.</li>
+            <li>
+              Finland’s ONKALO project shows one solution: waste stored deep in stable rock formations
+              with multiple engineered barriers.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ANSWERS / CO2 GOALS -->
+    <section id="answers">
+      <div class="section-label">
+        <span class="section-label-dot"></span>
+        Reaching CO₂ Goals · Research Answers
+      </div>
+      <h2>Does nuclear help Germany’s climate goals more than large biomass plants?</h2>
+      <p>
+        Here we bring the evidence together and answer your research questions directly,
+        based on the updated text from your slides.
+      </p>
+
+      <div class="qa-grid">
+        <!-- Q1 -->
+        <article class="card">
+          <div class="qa-title">Question 1</div>
+          <h3>
+            Is using nuclear power instead of large biomass energy generation plants in Germany
+            a beneficial tradeoff, or does it harm the environment equally in a different way?
+          </h3>
+
+          <div class="answer-pill">
+            <span class="answer-pill-dot"></span>
+            <span><strong>Conclusion:</strong> Environmentally beneficial – not equally harmful.</span>
+          </div>
+
+          <p>
+            Your sources argue that large biomass plants are more damaging than they appear:
+            they emit many pollutants and can have higher CO₂ per unit of energy than coal or natural gas
+            once supply chains are included.
+          </p>
+
+          <ul style="margin-top:0.7rem;">
+            <li>Biomass produces more CO₂ per unit of energy than coal or natural gas in several studies.</li>
+            <li>It emits harmful pollutants such as NOx, particulates, VOCs, and benzene.</li>
+            <li>Large biomass plants (&gt; 15 MW) require unsustainable volumes of feedstock over time.</li>
+            <li>Nuclear power produces no combustion pollution and far lower life-cycle carbon emissions.</li>
+            <li>
+              Nuclear waste has long-term risks, but Finland’s ONKALO project shows it can be securely managed,
+              eliminating routine environmental harm.
+            </li>
+          </ul>
+
+          <p style="margin-top:0.7rem;">
+            <strong>Therefore:</strong> Nuclear does <span class="highlight">not</span> “harm the environment equally in a different way.”
+            It eliminates continuous emissions and land-use pressures from large biomass plants. Its risks
+            are long-term and controllable, while biomass causes immediate, ongoing environmental degradation.
+          </p>
+        </article>
+
+        <!-- Q2 -->
+        <article class="card">
+          <div class="qa-title">Question 2</div>
+          <h3>
+            Is Germany’s aversion to nuclear energy based on real tradeoffs in sustainability, or fear?
+          </h3>
+
+          <div class="answer-pill">
+            <span class="answer-pill-dot-danger"></span>
+            <span><strong>Conclusion:</strong> Sustainable thinking, but also fear-driven politics.</span>
+          </div>
+
+          <p>
+            There are real sustainability issues around nuclear—waste, accident risk, and the way nuclear
+            shapes the overall energy system. But your presentation emphasizes that political culture and
+            emotion also mattered.
+          </p>
+
+          <ul style="margin-top:0.7rem;">
+            <li>Waste and accident risk mean nuclear isn’t seen as “perfectly clean.”</li>
+            <li>
+              Risk politics, anti-nuclear movements, and emotional reactions to accidents abroad shaped policy
+              at least as much as technical sustainability metrics.
+            </li>
+            <li>
+              Phase-out timing and strength make more sense when you include fear-informed risk perception and
+              Germany’s political culture, not just climate math.
+            </li>
+          </ul>
+
+          <p style="margin-top:0.7rem;">
+            <strong>Therefore:</strong> Germany’s aversion to nuclear energy is rooted in some real sustainability
+            tradeoffs (waste, accident risk, and system lock-in), but the strength and timing of the phase-out
+            were driven largely by <span class="highlight">fear-informed risk perception and politics</span>.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- GAME SECTION -->
+    <section id="game">
+      <div class="section-label">
+        <span class="section-label-dot"></span>
+        Activity · Class Kahoot Game
+      </div>
+      <h2>Test your knowledge: join the Kahoot quiz</h2>
+      <p>
+        To review the key points from this page, we created a Kahoot quiz that the whole class can join.
+        You can either go to the join page and type the PIN, or scan the QR code.
+      </p>
+
+      <div class="game-layout">
+        <article class="card">
+          <h3>How classmates join</h3>
+          <ol style="margin-top:0.4rem; margin-left:1.1rem; font-size:0.9rem;">
+            <li>Open a browser on your phone, tablet, or laptop.</li>
+            <li>Go to <strong><a href="https://kahoot.it" target="_blank" rel="noopener noreferrer">kahoot.it</a></strong>.</li>
+            <li>Enter the game PIN (you’ll show it on the projector when you start the game).</li>
+            <li>Pick a nickname and wait for the quiz to begin.</li>
+            <li>Answer questions as they appear. Fast and correct answers earn more points!</li>
+          </ol>
+
+          <p style="margin-top:0.8rem;">
+            Or skip typing and just scan the QR code on the right to jump directly to the join page.
+          </p>
+
+          <!-- TODO: REPLACE THIS href WITH YOUR REAL KAHOOT GAME LINK -->
+          <a
+            class="kahoot-button"
+            href="https://create.kahoot.it/details/eff34771-4a58-49af-8ea0-9505c980086d"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Kahoot Join Page
+          </a>
+
+          <p style="margin-top:0.9rem; font-size:0.8rem; color:var(--muted);">
+            <strong>Setup for you (presenter):</strong><br />
+            1. Create the quiz at <em>kahoot.com</em> and copy the share link.<br />
+            2. Edit this HTML file: replace the button link above and the QR code’s
+            <code>data=...</code> value with your real Kahoot URL so everything points to your game.
+          </p>
+        </article>
+
+        <article class="card game-qr">
+          <h3>Scan to join</h3>
+          <!-- TODO: AFTER YOU HAVE YOUR KAHOOT LINK, CHANGE data=https://kahoot.it TO YOUR LINK -->
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://kahoot.it"
+            alt="QR code to join the Kahoot game"
+          />
+          <p style="font-size:0.88rem;">
+            Point your camera at this QR code to open the Kahoot join page.
+          </p>
+          <p style="font-size:0.78rem; color:var(--muted); margin-top:0.5rem;">
+            Once your Kahoot is created, swap <code>https://kahoot.it</code> in the image URL for your actual
+            game link so this QR sends everyone straight to your quiz.
+          </p>
+        </article>
+      </div>
+
+      <article class="card game-questions">
+        <h3>Sample questions you can use in your Kahoot</h3>
+        <p>These align with your updated slides—you can copy them into Kahoot or edit as needed:</p>
+        <ol>
+          <li>
+            <strong>Which 1980s disaster cemented a societal association between nuclear plants and catastrophic risk in Germany?</strong><br />
+            A) Three Mile Island<br />
+            B) Seveso<br />
+            C) Chernobyl ✅<br />
+            D) Deepwater Horizon
+          </li>
+          <li>
+            <strong>Which statement about large biomass plants is accurate?</strong><br />
+            A) They emit no greenhouse gases<br />
+            B) They emit only water vapor and oxygen<br />
+            C) They emit CO₂, NOx, particulates, VOCs and other pollutants ✅<br />
+            D) They require no feedstock once started
+          </li>
+          <li>
+            <strong>What is the main long-term environmental concern with nuclear power?</strong><br />
+            A) Routine CO₂ emissions<br />
+            B) Long-lived radioactive waste ✅<br />
+            C) Noise pollution<br />
+            D) Solar panel competition
+          </li>
+          <li>
+            <strong>What does Finland’s ONKALO project demonstrate?</strong><br />
+            A) Nuclear waste cannot be stored safely<br />
+            B) Deep-geological storage can securely isolate spent nuclear fuel ✅<br />
+            C) Biomass is always cleaner than nuclear<br />
+            D) Germany has already solved its waste problem
+          </li>
+          <li>
+            <strong>Germany’s nuclear phase-out was driven by…</strong><br />
+            A) Only CO₂ reduction metrics<br />
+            B) Love of coal<br />
+            C) A mix of sustainability concerns and fear-driven risk politics ✅<br />
+            D) A lack of engineers
+          </li>
+        </ol>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      © <span id="year"></span> Alden · Sarah · Mia — Germany, Nuclear Power & Biomass
+    </div>
+    <div class="footer-pill">
+      Built from our updated class presentation & adapted into a web page.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
